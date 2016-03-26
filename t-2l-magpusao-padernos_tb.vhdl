@@ -26,7 +26,7 @@ architecture buzzer_tb of buzzer_tb is
 	-- Component declaration
 	component buzzer is
 		port (alarm: out std_logic; -- data output
-			oo, uo, eo: in std_logic; -- exit input buzzers
+			oo, uo, eo: in std_logic; -- e-it input buzzers
 			oi, ui, ei: in std_logic); -- entrance input buzzers	  	  				
 	end component buzzer;
 
@@ -71,13 +71,14 @@ begin	-- begin main body of the buzzer architecture
 					error_count := error_count + 1; --increment error_count
 				end if;
         ---------------------------------------------- 
-        --case 3: Boggis IN and Boggis OUT are 1
-		oo_t<='1';
-		uo_t<='0';
-		eo_t<='0';
-		oi_t<='1';
-		ui_t<='0';
-		ei_t<='0';	
+        --case 3: Bunce IN and Bunce OUT are 1
+	    oo_t<='-';
+		uo_t<='1';
+		eo_t<='-';
+		oi_t<='-';
+		ui_t<='1';
+		ei_t<='-';
+        
 		wait for DELAY;
 		
 		assert(alarm_t='1')
@@ -86,12 +87,132 @@ begin	-- begin main body of the buzzer architecture
 					error_count := error_count + 1; --increment error_count
 				end if;
         ---------------------------------------------- 
-        --case 4: Boggis IN and Bunce IN are 1
-		oo_t<='0';
-		uo_t<='0';
-		eo_t<='0';
+        --case 4: Bean IN and Bean OUT are 1
+		oo_t<='-';
+		uo_t<='-';
+		eo_t<='1';
+		oi_t<='-';
+		ui_t<='-';
+		ei_t<='1';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+        --case 5: Boggis IN, Boggis OUT
+		oo_t<='1';
+		uo_t<='-';
+		eo_t<='-';
 		oi_t<='1';
+		ui_t<='-';
+		ei_t<='-';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+        --case 6: Boggis OUT, Bunce IN  are 1
+		oo_t<='1';
+		uo_t<='-';
+		eo_t<='-';
+		oi_t<='-';
 		ui_t<='1';
+		ei_t<='-';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+        --case 7: Boggis OUT and Bean IN are 1
+		oo_t<='1';
+		uo_t<='-';
+		eo_t<='-';
+		oi_t<='-';
+		ui_t<='-';
+		ei_t<='1';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+        --case 8: Bunce OUT, Boggis IN are 1
+		oo_t<='-';
+		uo_t<='1';
+		eo_t<='-';
+		oi_t<='1';
+		ui_t<='-';
+		ei_t<='-';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+         --case 9: Bunce OUT, Bean IN are 1
+		oo_t<='-';
+		uo_t<='1';
+		eo_t<='-';
+		oi_t<='-';
+		ui_t<='-';
+		ei_t<='1';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+         --case 8: Bean OUT, Boggis IN are 1
+		oo_t<='-';
+		uo_t<='-';
+		eo_t<='1';
+		oi_t<='1';
+		ui_t<='-';
+		ei_t<='-';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ---------------------------------------------- 
+         --case 9: Bean OUT, Bunce IN are 1
+		oo_t<='-';
+		uo_t<='-';
+		eo_t<='1';
+		oi_t<='-';
+		ui_t<='1';
+		ei_t<='-';	
+		wait for DELAY;
+		
+		assert(alarm_t='1')
+			report "Error!" severity error;
+				if(alarm_t/='1') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ----------------------------------------------  
+        --case 10: Boggis OUT, Bunce OUT are 1
+		oo_t<='1';
+		uo_t<='1';
+		eo_t<='-';
+		oi_t<='0';
+		ui_t<='0';
 		ei_t<='0';	
 		wait for DELAY;
 		
@@ -101,13 +222,13 @@ begin	-- begin main body of the buzzer architecture
 					error_count := error_count + 1; --increment error_count
 				end if;
         ---------------------------------------------- 
-        --case 5: Boggis IN, Bunce IN and Bean IN are 1
-		oo_t<='0';
-		uo_t<='0';
-		eo_t<='0';
-		oi_t<='1';
-		ui_t<='1';
-		ei_t<='1';	
+        --case 11: Boggis OUT, Bean OUT are 1
+		oo_t<='1';
+		uo_t<='-';
+		eo_t<='1';
+		oi_t<='0';
+		ui_t<='0';
+		ei_t<='0';	
 		wait for DELAY;
 		
 		assert(alarm_t='0')
@@ -115,9 +236,9 @@ begin	-- begin main body of the buzzer architecture
 				if(alarm_t/='0') then
 					error_count := error_count + 1; --increment error_count
 				end if;
-        ---------------------------------------------- 
-        --case 6: Boggis OUT, Bunce OUT and Bean OUT are 1
-		oo_t<='1';
+        ----------------------------------------------  
+        --case 12: Bunce OUT, Bean OUT are 1
+		oo_t<='-';
 		uo_t<='1';
 		eo_t<='1';
 		oi_t<='0';
@@ -130,14 +251,14 @@ begin	-- begin main body of the buzzer architecture
 				if(alarm_t/='0') then
 					error_count := error_count + 1; --increment error_count
 				end if;
-        ---------------------------------------------- 
-        --case 7: Boggis OUT and Bunce OUT are 1
-		oo_t<='1';
-		uo_t<='1';
+        ----------------------------------------------   
+        --case 13: Boggis IN, Bunce IN are 1
+		oo_t<='0';
+		uo_t<='0';
 		eo_t<='0';
-		oi_t<='0';
-		ui_t<='0';
-		ei_t<='0';	
+		oi_t<='1';
+		ui_t<='1';
+		ei_t<='-';	
 		wait for DELAY;
 		
 		assert(alarm_t='0')
@@ -146,22 +267,39 @@ begin	-- begin main body of the buzzer architecture
 					error_count := error_count + 1; --increment error_count
 				end if;
         ---------------------------------------------- 
-        --case 8: Boggis OUT, Bunce OUT and Bean IN are 1
-		oo_t<='1';
-		uo_t<='1';
+        --case 14: Boggis IN, Bean IN are 1
+		oo_t<='0';
+		uo_t<='0';
 		eo_t<='0';
-		oi_t<='0';
-		ui_t<='0';
+		oi_t<='1';
+		ui_t<='-';
 		ei_t<='1';	
 		wait for DELAY;
 		
-		assert(alarm_t='1')
+		assert(alarm_t='0')
 			report "Error!" severity error;
-				if(alarm_t/='1') then
+				if(alarm_t/='0') then
 					error_count := error_count + 1; --increment error_count
 				end if;
-        ---------------------------------------------- 
+        ----------------------------------------------  
+        --case 15: Bunce OUT, Bean OUT are 1
+		oo_t<='0';
+		uo_t<='0';
+		eo_t<='0';
+		oi_t<='-';
+		ui_t<='1';
+		ei_t<='1';	
+		wait for DELAY;
+		
+		assert(alarm_t='0')
+			report "Error!" severity error;
+				if(alarm_t/='0') then
+					error_count := error_count + 1; --increment error_count
+				end if;
+        ----------------------------------------------   
+        
 	   -- check if there are errors
+        
 		if(error_count=0) then
 			report "Simulation completed with NO errors.";
 		else
