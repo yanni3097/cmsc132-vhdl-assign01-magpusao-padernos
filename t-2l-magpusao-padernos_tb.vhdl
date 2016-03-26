@@ -282,7 +282,7 @@ begin	-- begin main body of the buzzer architecture
 					error_count := error_count + 1; --increment error_count
 				end if;
         ----------------------------------------------  
-        --case 15: Bunce OUT, Bean OUT are 1
+        --case 15: Bunce IN, Bean IN are 1
 		oo_t<='0';
 		uo_t<='0';
 		eo_t<='0';
